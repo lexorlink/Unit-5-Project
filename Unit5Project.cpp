@@ -1,3 +1,2 @@
 //Hello World
-//Aarush is Gay
-//nah
+//xavier and tim are Gay for each other
