@@ -1,2 +1,7 @@
-//Hello World
-//xavier and tim are Gay for each other
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  
+}
