@@ -9,15 +9,15 @@ int main(){
     bool programActive = true;
     string userInput;
     while(programActive == true){
-        //Wealcomes user
+        //Welcomes user
         cout<<"------ Welcome to Word Counter ------"<<endl;
         cout<<"Please enter your document or enter 'exit' to end program"<<endl;
-        //user input not implemented
         cin>>userInput;
-        //exits the loop
+
         if (userInput == "exit" || userInput == "Exit"){
             cout<<"Ending program ...";
             programActive = false;
+            //exits the loop
         }
         else{
             //This is where we should get the input for word count
