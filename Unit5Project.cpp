@@ -8,19 +8,23 @@ using namespace std;
 int main(){
     bool programActive = true;
     string userInput;
-    while(programActive == true){
+    string userFilePath;
+    while(programActive = true){
         //Welcomes user
         cout<<"------ Welcome to Word Counter ------"<<endl;
-        cout<<"Please enter your document or enter 'exit' to end program"<<endl;
-        cin>>userInput;
+        cout<<"Please copy in your file path or enter 'exit' to end program"<<endl;
+        cin>>userFilePath;
 
-        if (userInput == "exit" || userInput == "Exit"){
+        if (userFilePath == "exit" || userFilePath == "Exit"){
             cout<<"Ending program ...";
             programActive = false;
             //exits the loop
         }
-        else{
-            //This is where we should get the input for word count
+        if (userFilePath != "exit" || userFilePath != "Exit"){
+            ofstream inFile(userFilePath); 
+            programActive = false;
+            //this just lets us confirm the file works
+            
         }
     }
 }
