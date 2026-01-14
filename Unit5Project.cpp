@@ -8,7 +8,7 @@ bool openWelcomeWindow = true;
 bool programActive = true;
 int main(){
     string userFilePath;
-    while(programActive = true){
+    while(programActive == true){
         //Welcomes user
         if (openWelcomeWindow == true){
             cout<<"----------Welcome to Word Counter----------"<<endl;
@@ -21,14 +21,14 @@ int main(){
 
         if (userFilePath == "exit" || userFilePath == "Exit"){
             cout<<"Ending program ...";
-            break;
+            programActive = false;
             //exits the loop
         }
         if (userFilePath != "exit" || userFilePath != "Exit"){
             cout<<"The path you have selected is: "<<userFilePath << endl;
-            ofstream inFile(userFilePath); 
+            ifstream inFile(userFilePath); 
             
-            break;
+            programActive = false;
             //this just lets us confirm the file works, data scanning needs implementation
             
         }
