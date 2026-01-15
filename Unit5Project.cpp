@@ -23,7 +23,16 @@ int main() {
         cout << "Failed to open file." << endl;
         return 1;
     }
+    else {
+            string word;
+            int wordCount = 0;
+            while (inFile >> word) {
+                    wordCount++;
+                }
+            cout << "This document contains: " << wordCount << "words" << endl;
 
+    }
+    
     int totalCharacters = 0;
 
     while (inFile.get(characterCounter)) {
@@ -33,7 +42,7 @@ int main() {
 
     inFile.close();
 
-    cout << "This document contains: " << totalCharacters << " characters." << endl;
+    cout << "This document contains " << totalCharacters << " characters." << endl;
 
     return 0;
 }
