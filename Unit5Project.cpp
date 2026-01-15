@@ -33,7 +33,7 @@ int main() {
 
     inFile.close();
 
-    cout << "This document contains " << totalCharacters << " characters." << endl;
+    cout << "This document contains: " << totalCharacters << " characters." << endl;
 
     return 0;
 }
