@@ -1,37 +1,39 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <map>
 #include <string>
-#include <iomanip>
 using namespace std;
-bool openWelcomeWindow = true;
-bool programActive = true;
-int main(){
+
+int main() {
+    map<char, int> counter;
+    char characterCounter;
     string userFilePath;
-    while(programActive == true){
-        //Welcomes user
-        if (openWelcomeWindow == true){
-            cout<<"----------Welcome to Word Counter----------"<<endl;
-            cout<<"Enter your file path or type 'exit' to close the program (preferably a .txt file)"<<endl;
-            cout<<"Note that the file name must NOT contain any spaces"<<endl;
-            cin>>userFilePath;
-            openWelcomeWindow = false;
-            //disables the window from being reopened until needed
-        }
 
-        if (userFilePath == "exit" || userFilePath == "Exit"){
-            cout<<"Ending program ...";
-            programActive = false;
-            //exits the loop
-        }
-        if (userFilePath != "exit" || userFilePath != "Exit"){
-            cout<<"The path you have selected is: "<<userFilePath << endl;
-            ifstream inFile(userFilePath); 
-            
-            programActive = false;
-            //this just lets us confirm the file works, data scanning needs implementation
-            
-        }
+    cout << "----------Welcome to Word Counter----------" << endl;
+    cout << "Enter your file path or type 'exit' to close the program" << endl;
+    cin >> userFilePath;
+
+    if (userFilePath == "exit" || userFilePath == "Exit") {
+        cout << "Ending program ..." << endl;
+        return 0;
     }
-}
 
+    ifstream inFile(userFilePath);
+    if (!inFile) {
+        cout << "Failed to open file." << endl;
+        return 1;
+    }
+
+    int totalCharacters = 0;
+
+    while (inFile.get(characterCounter)) {
+        counter[characterCounter]++;
+        totalCharacters++;
+    }
+
+    inFile.close();
+
+    cout << "This document contains " << totalCharacters << " characters." << endl;
+
+    return 0;
+}
