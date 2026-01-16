@@ -2,7 +2,6 @@
 #include <fstream>
 #include <map>
 #include <string>
-#include <sstream>
 using namespace std;
 
 int main() {
@@ -27,28 +26,45 @@ int main() {
     }
 
     string line;
-    
-    while (getline(inFile, line)) {
-        stringstream ss(line);
-        string word;
-        while (ss > word){
-            wordCount++;
-        }
+
+    //Counts Words
+    string word;
+    while (inFile >> word){
+        wordCount++;
     }
-    infile.clear();
+
+    //Reset File
+    inFile.clear();
+    inFile.seekg(0);
 
 
     int totalCharacters = 0;
 
+    //Counts Characters
     while (inFile.get(characterCounter)) {
         counter[characterCounter]++;
         totalCharacters++;
     }
 
-    inFile.close();
-
-    cout << "This document contains: " << wordCount << "words" << endl;
+    cout << "This document contains: " << wordCount << " words" << endl;
     cout << "This document contains " << totalCharacters << " characters." << endl;
+
+    //Reset File again
+    inFile.clear();
+    inFile.seekg(0);
+    
+    //Outputs the text
+    cout << "\n----- File Contents -----" << endl;
+
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+
+    cout << "-------------------------" << endl;
+
+    //Closes the File
+    inFile.close();
 
     return 0;
 }
