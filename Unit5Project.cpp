@@ -13,7 +13,7 @@ int main() {
 
     cout << "----------Welcome to Word Counter----------" << endl;
     cout << "Enter your file path or type 'exit' to close the program" << endl;
-    cin >> userFilePath;
+    getline(cin, userFilePath);
 
     if (userFilePath == "exit" || userFilePath == "Exit") {
         cout << "Ending program ..." << endl;
@@ -24,14 +24,14 @@ int main() {
     if (!inFile) {
         cout << "Failed to open file." << endl;
         return 1;
-    }else {
-        
     }
 
-    while (getline(inFile, word)) {
-        stringstream ss(word);
+    string line;
+    
+    while (getline(inFile, line)) {
+        stringstream ss(line);
         string word;
-        while (ss>word){
+        while (ss > word){
             wordCount++;
         }
     }
