@@ -4,11 +4,14 @@
 #include <string>
 using namespace std;
 
+//C:\\Users\\89173\\U-5-text.txt 
+
 int main() {
     map<char, int> counter;
     char characterCounter;
     string userFilePath;
     int wordCount = 0;
+    string line;
 
     cout << "----------Welcome to Word Counter----------" << endl;
     cout << "Enter your file path or type 'exit' to close the program" << endl;
@@ -25,11 +28,10 @@ int main() {
         return 1;
     }
 
-    string line;
-
     //Counts Words
     string word;
     while (inFile >> word){
+        cout <<"hi"<< endl;
         wordCount++;
     }
 
@@ -47,7 +49,8 @@ int main() {
     }
 
     cout << "This document contains: " << wordCount << " words" << endl;
-    cout << "This document contains " << totalCharacters << " characters." << endl;
+    cout << "This document contains: " << totalCharacters << " characters." << endl;
+    cout << "hello" << endl;
 
     //Reset File again
     inFile.clear();
@@ -56,7 +59,7 @@ int main() {
     //Outputs the text
     cout << "\n----- File Contents -----" << endl;
 
-    string line;
+    
     while (getline(inFile, line)) {
         cout << line << endl;
     }
