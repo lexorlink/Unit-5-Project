@@ -12,28 +12,36 @@ int main() {
     string userFilePath;
     int wordCount = 0;
     string line;
+    string start;
 
     cout << "----------Welcome to Word Counter----------" << endl;
-    cout << "Enter your file path or type 'exit' to close the program" << endl;
-    getline(cin, userFilePath);
+    cout << "Enter 'start' to begin the program" << endl;
+    cin >> start;
+    do {
 
-    if (userFilePath == "exit" || userFilePath == "Exit") {
-        cout << "Ending program ..." << endl;
-        return 0;
-    }
+        cout << "Enter your file path or type 'exit' to close the program" << endl;
+        getline(cin, userFilePath);
 
-    ifstream inFile(userFilePath);
-    if (!inFile) {
-        cout << "Failed to open file." << endl;
-        return 1;
-    }
+        if (userFilePath == "exit" || userFilePath == "Exit") {
+            cout << "Ending program ..." << endl;
+            break;
+        }
+
+        ifstream inFile(userFilePath);
+        if (!inFile) {
+            cout << "Failed to open file." << endl;
+
+        }
+        cout << "Please choose which tool you would like to use"
+
+    } while (start == start)
+
+    
+
+    
 
     //Counts Words
-    string word;
-    while (inFile >> word){
-        cout <<"hi"<< endl;
-        wordCount++;
-    }
+   
 
     //Reset File
     inFile.clear();
@@ -43,14 +51,11 @@ int main() {
     int totalCharacters = 0;
 
     //Counts Characters
-    while (inFile.get(characterCounter)) {
-        counter[characterCounter]++;
-        totalCharacters++;
-    }
+    
+    
 
     cout << "This document contains: " << wordCount << " words" << endl;
-    cout << "This document contains: " << totalCharacters << " characters." << endl;
-    cout << "hello" << endl;
+
 
     //Reset File again
     inFile.clear();
@@ -70,4 +75,18 @@ int main() {
     inFile.close();
 
     return 0;
+}
+static void charCounter{
+    while (inFile.get(characterCounter)) {
+        counter[characterCounter]++;
+        totalCharacters++;
+    }
+    cout << "This document contains: " << totalCharacters << " characters." << endl;
+}
+static void wordCounter{
+    string word;
+    while (inFile >> word){
+        wordCount++;
+    }
+    cout << "This document contains: " << wordCount << " words" << endl;
 }
