@@ -20,7 +20,7 @@ int main() {
     cout << "----------Welcome to Word Counter----------" << endl;
     cout << "Enter 'start' to begin the program" << endl;
     cin >> start;
-
+    
     while (start == "start"){
 
         cout << "Enter your file path or type 'exit' to close the program" << endl;
@@ -42,42 +42,45 @@ int main() {
         cout << "Please enter either 1, 2, 3, or 4, depending on which option you would like to choose." << endl;
         cin >> toolChoice;
 
-            switch (toolChoice){
-                case 1:
+        switch (toolChoice){
+            case 1:
                 wordCounter(inFile);
                 textOutput(inFile);
                 break;
-                case 2:
+            case 2:
                 charCounter(inFile);
                 textOutput(inFile);
                 break;
-                case 3:
+            case 3:
+            
                 textOutput(inFile);
                 break;
-                case 4:
+            case 4:
                 wordCounter(inFile);
                 charCounter(inFile);
+                
                 textOutput(inFile);
                 break;
-                default:
-                    cout << "You entered an invalid number, please try again" << endl;
+            default:
+                cout << "You entered an invalid number, please try again" << endl;
                 break;
-            }
-
-            cout << "Please enter either, '1' to use anouther tool or, '2' to exit the program." <<endl;
-            cin >> rerunNum;
-
-            if (rerunNum == 2){
-                start = "exit";
-            }
-    
-            inFile.close();
-
         }
 
+        cout << "Please enter either, '1' to use anouther tool or, '2' to exit the program." <<endl;
+        cin >> rerunNum;
+
+        if (rerunNum == 2){
+            start = "exit";
+        }
+
+        inFile.close();
+
+    }
+     
     return 0;
 
 }
+
 void charCounter(ifstream& inFile){
     
     counter.clear();
@@ -113,11 +116,11 @@ void textOutput(ifstream& inFile){
 
     cout << "\n----- File Contents -----" << endl;
 
-    while (getline(inFile, line)) {
-        cout << line << endl;
-    }
+        while (getline(inFile, line)) {
+            cout << line << endl;
+        }
 
-    cout << "-------------------------" << endl;
+        cout << "-------------------------" << endl;
 
     inFile.clear();
     inFile.seekg(0);
