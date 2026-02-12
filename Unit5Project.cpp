@@ -126,3 +126,28 @@ void textOutput(ifstream& inFile){
     inFile.seekg(0);
 
 }
+void specificCharCounter() {
+    char target;
+    cout << "Enter a character to search for: ";
+    cin >> target;
+
+
+    counter.clear();   // reset map
+    int total = 0;
+
+
+    while (inFile.get(characterCounter)) {
+        counter[characterCounter]++;
+    }
+
+
+    total = counter[target];
+
+
+    cout << "The character '" << target << "' appears "
+         << total << " times in the file.\n";
+
+
+    inFile.clear();
+    inFile.seekg(0);
+}
