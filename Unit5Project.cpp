@@ -7,14 +7,16 @@ using namespace std;
 //C:\\Users\\89173\\U-5-text.txt 
 
 map<char, int> counter;
+char characterCounter;
 
 void charCounter(ifstream& inFile);
 void wordCounter(ifstream& inFile);
 void textOutput(ifstream& inFile);
+void specificCharCounter(ifstream& inFile);
 
 int main() {
 
-    string userFilePath, start;
+    string userFilePath, start = "exit";
     int toolChoice, rerunNum;
 
     cout << "----------Welcome to Word Counter----------" << endl;
@@ -52,13 +54,13 @@ int main() {
                 textOutput(inFile);
                 break;
             case 3:
-            
+                specificCharCounter(inFile);
                 textOutput(inFile);
                 break;
             case 4:
                 wordCounter(inFile);
                 charCounter(inFile);
-                
+                specificCharCounter(inFile);
                 textOutput(inFile);
                 break;
             default:
@@ -126,27 +128,22 @@ void textOutput(ifstream& inFile){
     inFile.seekg(0);
 
 }
-void specificCharCounter() {
+void specificCharCounter(ifstream& inFile) {
+    
     char target;
     cout << "Enter a character to search for: ";
     cin >> target;
 
-
-    counter.clear();   // reset map
+    counter.clear();    // reset map
     int total = 0;
-
 
     while (inFile.get(characterCounter)) {
         counter[characterCounter]++;
     }
 
-
     total = counter[target];
 
-
-    cout << "The character '" << target << "' appears "
-         << total << " times in the file.\n";
-
+    cout << "The character '" << target << "' appears " << total << " times in the file." <<endl;
 
     inFile.clear();
     inFile.seekg(0);
