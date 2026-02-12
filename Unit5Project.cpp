@@ -4,8 +4,6 @@
 #include <string>
 using namespace std;
 
-//C:\\Users\\89173\\U-5-text.txt 
-
 map<char, int> counter;
 char characterCounter;
 
