@@ -60,7 +60,7 @@ int main() {
                 textOutput(inFile);
                 break;
             case 4:
-		   specificCharCounter(inFile);
+		        specificCharCounter(inFile);
                 wordCounter(inFile);
                 charCounter(inFile);
                 textOutput(inFile);
@@ -68,7 +68,7 @@ int main() {
             default:
 		        //If the user inputs an ivalid case num they with have to try again.
                 cout << "You entered an invalid number, please try again" << endl;
-                break;
+                continue;
         }
 
 	    //If the user enters 1 start will not change but if the enter 2 it will.
